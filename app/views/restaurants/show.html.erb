@@ -11,7 +11,7 @@
     </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-4 text-center">
     <h2>Reviews</h2>
     <ul class="list-group-flush">
       <% @restaurant.reviews.each do |review| %>
@@ -22,10 +22,14 @@
     <div class="row">
       <h2>Leave a review</h2>
        <%= simple_form_for [ @restaurant, @review ] do |f| %>
-          <%= f.input :content %>
+          <%= f.input :content%>
           <%= f.input :rating, :collection => 0..5, :prompt => 'Choose a rating...' %>
           <%= f.submit "Submit review", class: 'btn btn-primary mt-3'%>
       <% end %>
     </div>
-  <%= link_to 'Back to list', restaurants_path, class: 'btn btn-primary' %>
+  <div class="row mt-4 text-center">
+    <div class="col">
+      <%= link_to 'Back to list', restaurants_path, class: 'btn btn-primary' %>
+    </div>
   </div>
+</div>
