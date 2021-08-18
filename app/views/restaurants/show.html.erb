@@ -1,0 +1,24 @@
+<div class="container m-3">
+  <div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-body text-center">
+        <h3 class="card-title"><%= @restaurant.name %></h3>
+        <p class="card-subtitle"><%= @restaurant.address %></p>
+        <p><%= @restaurant.phone_number %></p>
+        <%= link_to "Leave review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+      </div>
+      <div class="card-footer text-center"><%= @restaurant.category %></div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <h2>Reviews</h2>
+    <ul class="list-group-flush">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.rating %> stars: <%= review.content %></li>
+      <% end %>
+      </ul>
+    </div>
+  <%= link_to 'Back to list', restaurants_path, class: 'btn btn-primary' %>
+  </div>
